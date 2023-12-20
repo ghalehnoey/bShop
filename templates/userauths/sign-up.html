@@ -1,0 +1,41 @@
+{%extends 'partials/base.html'%}
+{%load static%}
+{%block content%}
+
+
+<section class="checkout-inner-page pt_large pb_large">
+  {% if form.errors %}
+  <div class="alteration">
+      <strong>
+          {{form.errors}}
+      </strong>
+  </div>
+  {% endif %}
+  <div class="container">
+      <div class="row">
+          <form role="form" action="" method="POST">
+              {% csrf_token %}
+              <h1>Register</h1>
+              <div class="form-group">
+                  {{ form.username }}
+              </div>
+              <div class="form-group">
+                  {{ form.email }}
+              </div>
+              <div class="form-group">
+                  {{ form.password1 }}
+              </div>
+              <div class="form-group">
+                  {{ form.password2 }}
+              </div>
+              <div class="form-group form-wizard-buttons">
+                  <button class="btn btn-primary btn-submit" type="submit">Register Now</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</section>
+
+
+
+{%endblock content%}
